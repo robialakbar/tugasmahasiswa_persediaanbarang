@@ -68,7 +68,8 @@
               <th>Kondisi</th>
               <th>Ruangan</th>
               <th>Sumber</th>
-              <th>Janis Barang</th>
+              <th>Jenis Barang</th>
+              <th>Jumlah Barang</th>
               <th>Tahun</th>
               <th>Harga Perolehan</th>
               <th>User</th>
@@ -85,6 +86,7 @@
                 <td><?php echo $b['ruang']; ?></td>
                 <td><?php echo $b['sumber']; ?></td>
                 <td><?php echo $b['jenis']; ?></td>
+                <td><?php echo $b['stok']; ?></td>
                 <td><?php echo $b['tahun']; ?></td>
                 <td><?php echo 'Rp. '.number_format($b['harga_perolehan'],0, ",", "."); ?></td>
                 <td><?php echo $b['username']; ?></td>

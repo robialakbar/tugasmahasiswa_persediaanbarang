@@ -209,7 +209,6 @@ class Barang extends CI_Controller {
 		$data['ruang'] = $this->masterm->get_ruangan($kdRuang)['ruang'];
 		$data['content'] = 'inventory/laporan';
 		$this->load->view('layout', $data);
-		//var_dump($this->input->post('keterangan'));die;
 	}
 
 	public function get_laporan($kdNama, $kondisi)
@@ -219,7 +218,9 @@ class Barang extends CI_Controller {
 			$nama = $this->masterm->get_nama($kdNama->result_array()[$i]['nama_kd']);
 			$laporan += [$nama['nama']=>[]];
 			$laporan[$nama['nama']] += [
-				'stok' =>  $nama['stok']
+				'kode' => $this->invenm->get_barang('nama_kd', $nama['kd_nama'])->result()[0]->kd_barang,
+				'stok' => $nama['stok'],
+				'keterangan'	=> '',
 			];
 			$nama = $nama['nama'];
 			for ($j=0; $j < $kondisi->num_rows(); $j++) {

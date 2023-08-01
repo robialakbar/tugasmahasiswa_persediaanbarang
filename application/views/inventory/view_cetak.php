@@ -14,11 +14,12 @@
 
           <div class="row">
             <div class="col-12 table-responsive">
-              <table class="table table-bordered table-stripped table-sm">
+              <table class="table table-bordered table-stripped table-sm" id="table">
                 <thead>
                   <tr class="text-center">
                     <th rowspan="2" width="20px">No.</th>
                     <th rowspan="2">Nama Barang</th>
+                    <th rowspan="2">Kode Barang</th>
                     <th rowspan="2">Jumlah</th>
                     <th colspan="3">Kondisi</th>
                     <th rowspan="2">Keterangan</th>
@@ -78,7 +79,7 @@
       "responsive": true,
       "autoWidth": false,
     });
-    $('#example2').DataTable({
+    $('#table').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

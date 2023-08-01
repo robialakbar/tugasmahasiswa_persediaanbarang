@@ -12,7 +12,7 @@ class Inventory_model extends CI_Model {
 	public function get_barang($by=null, $param=null)
 	{
 		if ($by!=null && $param!=null) { 
-			$this->db->select('barang.*, nama_barang.nama, nama_barang.harga_perolehan, kondisi.kondisi, ruangan.ruang, sumber.sumber, jenis.jenis, tahun.tahun , user.username');
+			$this->db->select('barang.*, nama_barang.nama, nama_barang.harga_perolehan, nama_barang.stok, kondisi.kondisi, ruangan.ruang, sumber.sumber, jenis.jenis, tahun.tahun , user.username');
 			$this->db->join('nama_barang', 'barang.nama_kd = nama_barang.kd_nama');
 			$this->db->join('kondisi', 'barang.kondisi_kd = kondisi.kd_kondisi');
 			$this->db->join('ruangan', 'barang.ruang_kd = ruangan.no_ruang');
@@ -22,7 +22,7 @@ class Inventory_model extends CI_Model {
 			$this->db->join('user', 'barang.user_kd = user.kd_user');
 			return $this->db->get_where('barang', [$by => $param]);
 		} else {
-			$this->db->select('barang.*, nama_barang.nama, nama_barang.harga_perolehan, kondisi.kondisi, ruangan.ruang, sumber.sumber, jenis.jenis, tahun.tahun ,user.username');
+			$this->db->select('barang.*, nama_barang.nama, nama_barang.harga_perolehan, nama_barang.stok, kondisi.kondisi, ruangan.ruang, sumber.sumber, jenis.jenis, tahun.tahun ,user.username');
 			$this->db->join('nama_barang', 'barang.nama_kd = nama_barang.kd_nama');
 			$this->db->join('kondisi', 'barang.kondisi_kd = kondisi.kd_kondisi');
 			$this->db->join('ruangan', 'barang.ruang_kd = ruangan.no_ruang');
@@ -82,7 +82,7 @@ class Inventory_model extends CI_Model {
 	public function get_laporan_barang($ruangKd="")
 	{
 		if($ruangKd){
-			return $this->db->query('SELECT DISTINCT(`nama_kd`)
+			return $this->db->query('SELECT DISTINCT(`nama_kd`), `kd_barang`
 									FROM `barang`
 									JOIN `nama_barang`
 									ON `barang`.`nama_kd` = `nama_barang`.`kd_nama`

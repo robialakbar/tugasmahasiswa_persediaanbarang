@@ -26,12 +26,12 @@
 
         <div class="row">
           <div class="offset-1 col-10 table-responsive">
-            <table class="table table-bordered table-sm">
-              <thead>
+            <table class="table table-bordered table-sm" id="table">
+            <thead>
                 <tr class="text-center">
                   <th rowspan="2" width="20px">No.</th>
-                  <th rowspan="2">Kode Barang</th>
                   <th rowspan="2">Nama Barang</th>
+                  <th rowspan="2">Kode Barang</th>
                   <th rowspan="2" width="10px">Jumlah</th>
                   <th colspan="3">Kondisi</th>
                   <th rowspan="2" width="30%">Keterangan</th>
@@ -46,7 +46,6 @@
                 <?php $no=0; foreach($laporan as $n => $k ): $no++;?>
                   <tr>
                     <td class="text-center"><?php echo $no; ?></td>
-                    <td><?php echo $kd_barang; ?></td>
                     <td><?php echo $n; ?></td>
                     <?php foreach($k as $k => $j ):?>
                       <td class="text-center"><?php echo $j; ?></td>

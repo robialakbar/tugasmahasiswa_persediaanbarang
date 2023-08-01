@@ -79,6 +79,12 @@
                 <td><?php echo $barang['jenis']; ?></td>
               </tr>
               <tr>
+                <td>6</td>
+                <td>Jumlah Barang</td>
+                <td>:</td>
+                <td><?php echo $barang['stok']; ?></td>
+              </tr>
+              <tr>
                 <td>7</td>
                 <td>Tahun Perolehan</td>
                 <td>:</td>

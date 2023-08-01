@@ -15,9 +15,9 @@
   
   <?php if ($this->uri->segment(1)=="barang" || $this->uri->segment(1)=="info") : ?>
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>plugins/datatables/datatables.min.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-
+  <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <?php endif; ?>
 
   <!-- daterange picker -->
@@ -341,6 +341,18 @@
 
 <script src="<?php echo base_url('assets/'); ?>dist/js/sky.js"></script>
 
+
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?php echo base_url('assets/'); ?>plugins/jszip/jszip.min.js"></script>
+
 <script type="text/javascript">
 
   $(function () {
@@ -363,6 +375,25 @@
         $('.toast').css('min-width',200)
       }
     }
+
+      $(function () {
+        $('#table').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+          dom: 'Bfrtip',
+          buttons: [
+              'copyHtml5',
+              'excelHtml5',
+              'csvHtml5',
+              'pdfHtml5'
+          ]
+        });
+      });
     
     // $('.ubah-kategori').on('click', function () {
     //   const id = $(this).data('id');
